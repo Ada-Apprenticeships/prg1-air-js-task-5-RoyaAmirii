@@ -20,6 +20,18 @@ function readCsv(filename, delimiter = ',') {
         return null;
     }
 }
+// Function to get distance from airports data
+function getDistance(airportCode, airportsData) {
+    const airport = airportsData.find(row => row[1] === airportCode); // Assuming column 1 has airport codes
+    return airport ? parseInt(airport[2]) : null; // Assuming column 2 has distances
+}
+// Function to get aircraft data
+function getAircraftData(aircraftType, aircraftData) {
+    return aircraftData.find(row => row[0] === aircraftType); // Assuming the first column has aircraft types
+}
+
+    
+
 
 // Usage example
 const airportsData = readCsv('airports.csv');
